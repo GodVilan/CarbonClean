@@ -1,0 +1,69 @@
+/* Centering the card and adding padding */
+.container {
+    margin-top: 50px;
+}
+
+/* Styling the card */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form field styling */
+form .form-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+form .form-group input, 
+form .form-group select, 
+form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.btn {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    color: white;
+}
+
+.btn-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Modal styling */
+.modal-content {
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.modal-header .modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}

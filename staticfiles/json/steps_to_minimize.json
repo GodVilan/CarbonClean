@@ -1,0 +1,110 @@
+{
+  "Transport": {
+    "Car": {
+      "Good": [
+        "Switch to fully electric or plug-in hybrid vehicles.",
+        "Use renewable energy sources like solar or wind for charging electric vehicles.",
+        "Promote and utilize carpooling or ride-sharing services to reduce individual emissions."
+      ],
+      "Average": [
+        "Upgrade to fuel-efficient cars, such as hybrid models.",
+        "Perform regular vehicle maintenance, such as tire checks and oil changes, to optimize fuel efficiency.",
+        "Reduce unnecessary trips by planning routes efficiently or opting for remote work when possible."
+      ],
+      "Worst": [
+        "Shift from high-emission vehicles to public transport or bicycles for short trips.",
+        "Avoid purchasing or using SUVs or other high-emission vehicles unless absolutely necessary.",
+        "Advocate for or participate in programs that encourage the adoption of electric vehicles."
+      ]
+    },
+    "Bus": {
+      "Good": [
+        "Transition to using electric or hydrogen-powered buses in public and private fleets.",
+        "Optimize bus routes to reduce idle time and improve operational efficiency."
+      ],
+      "Average": [
+        "Increase passenger capacity utilization to minimize emissions per passenger.",
+        "Install emissions control technologies like particulate filters on older buses."
+      ],
+      "Worst": [
+        "Replace diesel-powered buses with cleaner alternatives, such as CNG or hybrid buses.",
+        "Expand public bus services to encourage a shift from individual car use."
+      ]
+    },
+    "Train": {
+      "Good": [
+        "Implement renewable energy sources for powering electric trains.",
+        "Optimize train schedules and operations to maximize passenger utilization."
+      ],
+      "Average": [
+        "Install regenerative braking systems to improve energy efficiency.",
+        "Upgrade older train engines to modern, more energy-efficient models."
+      ],
+      "Worst": [
+        "Electrify diesel-powered rail systems to reduce direct emissions.",
+        "Invest in low-emission, high-speed rail networks to replace less efficient modes of transport."
+      ]
+    }
+  },
+  "Buildings": {
+    "Electricity": {
+      "Good": [
+        "Install on-site renewable energy sources, such as solar panels or wind turbines.",
+        "Use energy storage solutions like batteries to minimize reliance on fossil-fuel-powered grids."
+      ],
+      "Average": [
+        "Upgrade to energy-efficient appliances, including LED lights and ENERGY STAR-rated devices.",
+        "Use smart meters and automation to monitor and optimize electricity consumption."
+      ],
+      "Worst": [
+        "Conduct a professional energy audit to identify inefficiencies.",
+        "Improve insulation, windows, and weatherproofing to reduce energy losses.",
+        "Switch to a green energy supplier that provides electricity from renewable sources."
+      ]
+    },
+    "Heating": {
+      "Good": [
+        "Install heat pumps or geothermal heating systems for highly efficient heating.",
+        "Use programmable thermostats to create efficient heating schedules."
+      ],
+      "Average": [
+        "Replace older boilers with more energy-efficient models.",
+        "Seal leaks in doors, windows, and walls to minimize heat loss."
+      ],
+      "Worst": [
+        "Transition from coal or oil-based heating systems to electric or gas heating.",
+        "Adopt district heating systems that use waste heat or renewable energy sources."
+      ]
+    }
+  },
+  "Industry": {
+    "Manufacturing": {
+      "Good": [
+        "Incorporate renewable energy sources, like solar or wind, into manufacturing facilities.",
+        "Invest in carbon capture and storage technologies to mitigate emissions."
+      ],
+      "Average": [
+        "Optimize production processes to minimize energy consumption and waste.",
+        "Use recycled or low-carbon materials to reduce upstream emissions."
+      ],
+      "Worst": [
+        "Replace outdated machinery with modern, energy-efficient equipment.",
+        "Implement energy management systems to track and reduce emissions systematically."
+      ]
+    },
+    "Construction": {
+      "Good": [
+        "Utilize low-carbon materials such as green concrete or recycled steel.",
+        "Employ energy-efficient machinery and ensure it is maintained regularly."
+      ],
+      "Average": [
+        "Adopt renewable energy solutions like portable solar systems for on-site operations.",
+        "Optimize project schedules to minimize machinery idle times and unnecessary energy use."
+      ],
+      "Worst": [
+        "Transition to electric or hybrid construction equipment to reduce emissions.",
+        "Source materials locally whenever possible to minimize transport-related emissions."
+      ]
+    }
+  }
+}

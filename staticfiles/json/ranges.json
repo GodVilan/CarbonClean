@@ -1,0 +1,64 @@
+{
+    "Transport": {
+        "Car": {
+            "Good": 50,
+            "Average": [
+                51,
+                100
+            ],
+            "Worst": 101
+        },
+        "Bus": {
+            "Good": 30,
+            "Average": [
+                31,
+                70
+            ],
+            "Worst": 71
+        },
+        "Train": {
+            "Good": 10,
+            "Average": [
+                11,
+                25
+            ],
+            "Worst": 26
+        }
+    },
+    "Buildings": {
+        "Electricity": {
+            "Good": 300,
+            "Average": [
+                301,
+                600
+            ],
+            "Worst": 601
+        },
+        "Heating": {
+            "Good": 200,
+            "Average": [
+                201,
+                500
+            ],
+            "Worst": 501
+        }
+    },
+    "Industry": {
+        "Manufacturing": {
+            "Good": 1000,
+            "Average": [
+                1001,
+                2000
+            ],
+            "Worst": 2001
+        },
+        "Construction": {
+            "Good": 500,
+            "Average": [
+                501,
+                1500
+            ],
+            "Worst": 1501
+        }
+    }
+}
