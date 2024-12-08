@@ -17,10 +17,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check Disk Space
+        run: df -h
+
+      - name: Clear Temporary Files
+        run: rm -rf /tmp/*
+
       - name: Set up Python version
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: '3.10'
 
       - name: Install Rust
         run: |
@@ -72,4 +78,3 @@ jobs:
           app-name: 'carbonclean'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D2F8175D76514B49A4DDA89C7FD4D243 }}
-
