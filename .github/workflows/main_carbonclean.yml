@@ -21,7 +21,8 @@ jobs:
         run: df -h
 
       - name: Clear Temporary Files
-        run: rm -rf /tmp/*
+        run: |
+          find /tmp -mindepth 1 ! -name 'clr-debug-pipe-832-976-*' ! -name 'dotnet-diagnostic-832-976-socket' ! -name 'snap-private-tmp' ! -name 'systemd-private-*' -delete
 
       - name: Set up Python version
         uses: actions/setup-python@v4
