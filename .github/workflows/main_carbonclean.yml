@@ -25,9 +25,14 @@ jobs:
       - name: Install Rust
         run: |
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-          echo 'source $HOME/.cargo/env' >> $GITHUB_ENV
           rustc --version
           cargo --version
+        env:
+          CARGO_HOME: ${{ runner.temp }}/cargo
+          RUSTUP_HOME: ${{ runner.temp }}/rustup
+
+      - name: Add Rust to PATH
+        run: echo "${{ runner.temp }}/cargo/bin" >> $GITHUB_PATH
 
       - name: Create and start virtual environment
         run: |
@@ -36,7 +41,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          source $HOME/.cargo/env
           source venv/bin/activate
           pip install -r requirements.txt --verbose
 
