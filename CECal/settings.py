@@ -100,6 +100,11 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+CSRF_TRUSTED_ORIGINS = [
+    config('CSRF_TRUSTED_ORIGINS'),
+]
+CSRF_COOKIE_SECURE = True
+
 
 # Email Settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
