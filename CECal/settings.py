@@ -101,8 +101,9 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 CSRF_TRUSTED_ORIGINS = [
-    config('CSRF_TRUSTED_ORIGINS'),
+    "https://carbonclean-hafra4cbbee9e8g0.centralus-01.azurewebsites.net",
 ]
+SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 
