@@ -17,22 +17,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check Disk Space
-        run: df -h
-
-      - name: Clear Temporary Files
-        run: |
-          find /tmp -mindepth 1 ! -name 'clr-debug-pipe-832-976-*' ! -name 'dotnet-diagnostic-832-976-socket' ! -name 'snap-private-tmp' ! -name 'systemd-private-*' -delete
-
       - name: Set up Python version
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.12'  # Ensure this matches the runtime environment
 
       - name: Install Rust
         run: |
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-          source $HOME/.cargo/env
+          echo 'source $HOME/.cargo/env' >> $GITHUB_ENV
           rustc --version
           cargo --version
 
@@ -43,18 +36,21 @@ jobs:
 
       - name: Install dependencies
         run: |
+          source $HOME/.cargo/env
           source venv/bin/activate
-          pip install -r requirements.txt
+          pip install -r requirements.txt --verbose
 
       - name: Zip artifact for deployment
         run: |
-          zip -r release.zip ./*
+          zip release.zip ./* -r
 
-      - name: Upload artifact for deployment jobs
+      - name: Upload artifact for deployment
         uses: actions/upload-artifact@v3
         with:
           name: python-app
-          path: release.zip
+          path: |
+            release.zip
+            !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -70,9 +66,10 @@ jobs:
           name: python-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: |
+          unzip release.zip
 
-      - name: 'Deploy to Azure Web App'
+      - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
