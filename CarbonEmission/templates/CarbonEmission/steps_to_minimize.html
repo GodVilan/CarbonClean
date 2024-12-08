@@ -1,0 +1,27 @@
+
+{% block content %}
+{% load static %}
+<html>
+    <head>
+        <title>Measure Your Carbon Footprint</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+        <div class="container mt-5">
+            <h2>Manage Activity: {{ sub_category }}</h2>
+
+            <h4 class="mt-4">Steps for Case: {{ case }}</h4>
+            {% if steps %}
+                <ul>
+                {% for step in steps %}
+                    <li>{{ step.description }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No steps available for this case.</p>
+            {% endif %}
+
+            <a href="{% url 'manage' %}" class="btn btn-secondary mt-3">Back to Activities</a>
+        </div>
+</html>
+{% endblock %}
+

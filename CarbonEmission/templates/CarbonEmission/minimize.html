@@ -1,0 +1,38 @@
+
+{% block content %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+<div class="container mt-5">
+    <h2>Manage Activity: {{ sub_category }}</h2>
+
+    <!-- Display Effects -->
+    <h4 class="mt-4">Effects</h4>
+    {% if effect %}
+        <ul>
+        {% for title, description in effect.items %}
+            <li><strong>{{ title }}:</strong> {{ description }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No effects data available.</p>
+    {% endif %}
+
+    <!-- Display Solutions -->
+    <h4 class="mt-4">Solutions</h4>
+    {% if solution %}
+        <ul>
+        {% for title, description in solution.items %}
+            <li><strong>{{ title }}:</strong> {{ description }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No solutions data available.</p>
+    {% endif %}
+    
+    <a href="{% url 'manage' %}" class="btn btn-secondary mt-3">Back to Activities</a>
+</div>
+</html>
+{% endblock %}

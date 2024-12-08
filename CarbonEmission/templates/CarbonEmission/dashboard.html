@@ -1,0 +1,44 @@
+{% extends "CarbonEmission/base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+{% load static %}
+<html>
+    <script src="{% static 'js/update_subcategory.js' %}"></script>
+    <body style="margin-top: 80px;">
+        <div class="col-md-8 offset-md-2">
+            <div class="card mt-4" style="align-items: center;">
+                <div class="card-body text-center">
+                    <h3 class="mt-4">Your Activities</h3>
+                    <h4>Total Emissions: <span class="text-danger">{{ total_emission }} kg CO₂</span></h4>
+                </div>
+            </div>
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Quantity</th>
+                        <th>Emission (kg CO₂)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for activity in activities %}
+                    <tr>
+                        <td>{{ activity.date|date:"M d, Y" }}</td>
+                        <td>{{ activity.category }}</td>
+                        <td>{{ activity.sub_category }}</td>
+                        <td>{{ activity.quantity }} {{ activity.unit }}</td>
+                        <td>{{ activity.calculate_emission }} kg CO₂</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">No activities recorded yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>    
+        </div>
+    </body>
+</html>
+{% endblock %}

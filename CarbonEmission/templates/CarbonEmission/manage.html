@@ -1,0 +1,111 @@
+
+{% block content %}
+{% load custom_filters %}
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body style="margin-top: -30px;">
+        <div class="container mt-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h3 class="mt-4">Your Activities</h3>
+                    <h4>Total Emissions: <span class="text-danger">{{ total_emission }} kg CO₂</span></h4>
+                </div>
+            </div>
+
+            <!-- <div class="d-flex justify-content-between mb-3">
+                <button class="btn btn-info" id="sortByCase">Sort</button>
+            </div> -->
+
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Subcategory</th>
+                        <th>Quantity</th>
+                        <th>Emission (kg CO₂)</th>
+                        <th><div class=" d-flex justify-content-between">
+                            Activities
+                            <button class="btn btn-info" id="sortByCase">Sort</button>
+                        </div></button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for activity in activities %}
+                        <tr class="{{ activity.css_class }}">
+                            <td>{{ activity.date|date:"M d, Y" }}</td>
+                            <td>{{ activity.category }}</td>
+                            <td>{{ activity.sub_category }}</td>
+                            <td>{{ activity.quantity }} {{ activity.unit }}</td>
+                            <td>{{ activity.calculate_emission }} kg CO₂</td>
+                            <td class="d-flex justify-content-around">
+                                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal{{ activity.id }}">Delete</button>
+                                <a href="{% url 'manage_activity' activity.sub_category %}" class="btn btn-primary">Manage</a>
+                                <a href="{% url 'steps_to_minimize' activity.sub_category activity.case %}" class="btn btn-success">Minimize</a>
+                            </td>
+                        </tr>
+                        <div class="modal fade" id="deleteModal{{ activity.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteModalLabel">Confirm Deletion</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete this activity? This action cannot be undone.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <form action="{% url 'delete_activity' activity.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center">No activities recorded yet.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            let sortState = 0;
+
+            document.getElementById('sortByCase').addEventListener('click', function () {
+                const tableBody = document.querySelector('table tbody');
+                const rows = Array.from(tableBody.querySelectorAll('tr'));
+
+                const sortingOrders = [
+                    { "table-success": 0, "table-warning": 1, "table-danger": 2, "": 3 },
+                    { "table-warning": 0, "table-danger": 1, "table-success": 2, "": 3 },
+                    { "table-danger": 0, "table-success": 1, "table-warning": 2, "": 3 }
+                ];
+
+                const currentOrder = sortingOrders[sortState];
+                rows.sort((a, b) => {
+                    const aClass = a.className.split(' ').find(cls => currentOrder[cls] !== undefined) || "";
+                    const bClass = b.className.split(' ').find(cls => currentOrder[cls] !== undefined) || "";
+                    return currentOrder[aClass] - currentOrder[bClass];
+                });
+
+                rows.forEach(row => tableBody.appendChild(row));
+                sortState = (sortState + 1) % sortingOrders.length;
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="{% static 'js/update_subcategory.js' %}"></script>
+    </body>
+</html>
+{% endblock %}

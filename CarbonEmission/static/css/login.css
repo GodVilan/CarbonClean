@@ -1,0 +1,81 @@
+
+img{
+    width: 200px;
+}
+
+input::placeholder {
+    opacity: 0.4 !important;
+}
+
+.logo_type {
+    flex: none;
+    width: auto;
+    height: 100%;
+}
+
+.logo_component {
+    flex-wrap: nowrap;
+    width: auto;
+    height: 3.25rem;
+    display: flex;
+}
+
+.w-nav-brand {
+    float: left;
+    color: #333;
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar_logo{
+    padding-left: 0%;
+}
+.navbar_component {
+    z-index: 999;
+    border-bottom: 1px solid var(--untitled-ui-gray100);
+    background-color: #eee;
+    align-items: center;
+    padding: 0.5rem 1rem !important;
+    background: #2341;
+    box-shadow: 0px 2px 4px 0 darkgrey;
+    display: flex;
+    position: sticky;
+    top: 0;
+    justify-content: flex-start;
+}
+
+.button_reg {
+        border-radius: 0.5rem;
+        border: #2d85b8;
+        background: #2d85a5;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.center-image {
+    margin-top: 50px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #2d85b8 !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.bg-primary {
+    background-color: #2d85b8 !important;
+}
+
+.btn-primary{
+    background-color: #2d85b8 !important;
+    border: #2d85b8;
+}

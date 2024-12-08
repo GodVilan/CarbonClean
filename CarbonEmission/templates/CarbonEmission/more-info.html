@@ -1,0 +1,27 @@
+{% extends "CarbonEmission/base.html" %}
+{% block title %}More Info{% endblock %}
+{% block content %}
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/more-info.css' %}">
+</head>
+<div class="welcome-container">
+    <div class="pt-20">
+        <div class="welcome-data">
+            <div class="welcome-text">KNOW MORE ABOUT CARBON EMISSION</div>
+                <div class="text-center">
+                    <div class="max-wdth">
+                        <h1 class="main-text">What is Carbon Emission?</h1>
+                    </div>
+                </div>
+                <h5 class="sub-text centered">Calculate your carbon footprint easily with our CO2 and CO2 equivalent calculator. With this free carbon footprint calculator, you can get a preliminary estimate of your Greenhouse Gas (GHG) measurements.</h5>
+                <div>
+                    <a class = "button_reg" type="submit" href="{% url 'more-info' %}"> Back to Top </a>
+                </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

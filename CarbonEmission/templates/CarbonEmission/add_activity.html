@@ -1,0 +1,71 @@
+
+{% block content %}
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/add_activity.css' %}">
+        <script src="{% static 'js/update_subcategory.js' %}"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    </head>
+    <body style="margin-top: -30px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card">
+                        <h2 class="text-center text-primary">Add Activity</h2>
+                        {% if add_activity_error %}
+                            <div class="alert alert-danger">
+                                {{ add_activity_error }}
+                            </div>
+                        {% endif %}
+                        <form method="POST" novalidate>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="id_category">Select Category</label>
+                                {{ form.category }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_sub_category">Select Subcategory</label>
+                                {{ form.sub_category }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_quantity">Enter Quantity</label>
+                                {{ form.quantity }}
+                            </div>
+                            <div class="form-group">
+                                <label for="id_unit">Unit</label>
+                                {{ form.unit }}
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Submit Activity</button>
+                        </form>
+                        <!-- <a href="{% url 'dashboard' %}" class="btn btn-link w-100 mt-3">Back to Dashboard</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if add_activity_success %}
+            <div class="modal fade show" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true" style="display: block;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-success" id="successModalLabel">Success</h5>
+                        </div>
+                        <div class="modal-body" style="margin-top: 20px; background-color: lightcyan;">
+                            <p class="text-center">Activity added successfully!</p>
+                            <p class="text-center">Go to Manage tab to view Activities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                setTimeout(() => {
+                    window.location.href = "{% url 'measure' %}";
+                }, 2000);
+            </script>
+        {% endif %}
+    </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
+{% endblock %}

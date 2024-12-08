@@ -1,0 +1,33 @@
+{% extends "CarbonEmission/base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+</head>
+
+<body>
+    <div class="welcome-container">
+        <div class="pt-20">
+            <div class="welcome-data">
+                <div class="welcome-text">Welcome to CarbonClean - A Carbon Emission Calculator</div>
+                    <div class="text-center">
+                        <div class="max-wdth">
+                            <h1 class="main-text">Get a breakdown of your Everyday's carbon emissions in seconds</h1>
+                        </div>
+                    </div>
+                    <h5 class="sub-text centered">Calculate your carbon footprint easily with our CO2 and CO2 equivalent calculator. With this free carbon footprint calculator, you can get a preliminary estimate of your Greenhouse Gas (GHG) measurements.</h5>
+                    <div>
+                        <a class = "button_reg" type="submit" href="{% url 'more-info' %}"> More Info ></a>
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+{% endblock %}
