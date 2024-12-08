@@ -120,3 +120,9 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "CarbonEmission/static",
 ]
+
+
+SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=True, cast=bool)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
