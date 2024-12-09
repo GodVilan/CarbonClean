@@ -5,18 +5,19 @@
     <head>
         <title>Measure Your Carbon Footprint</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/measure.css' %}">
     </head>
     <body>
-        <div class="container" style="margin-top: 100px;">
+        <div class="container">
             <div class="justify-content-between text-center">
-                <h1 class="text-center text-primary">Carbon Emission Tracker</h1>
+                <h1 class="text-center" style="color: #527c94;">Carbon Emission Tracker</h1>
                 <h6 class="text-center text-secondary">
                     Welcome to your personalized carbon emission dashboard. Here, you can track, manage, and take steps to minimize your carbon footprint. Your actions today can lead to a more sustainable tomorrow.
                 <h6>
                 <h6 class="text-center text-secondary">
                     Learn about the environmental impact of your daily activities and explore actionable steps to reduce emissions. Let’s work together to create a greener planet!
                 </h6>
-                <a href="{% url 'add_activity' %}" class="btn btn-secondary mt-3">Measure</a>
+                <a href="{% url 'add_activity' %}" class="btn btn-secondary mt-3" style="background-color: #527c94;">Measure</a>
             </div>
         </div>
     </body>

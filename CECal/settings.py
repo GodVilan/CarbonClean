@@ -115,7 +115,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-# Static files settings
+# # Static files settings
 # STATIC_URL = '/static/'
 
 # # Location where static files will be collected (for production)

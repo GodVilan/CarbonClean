@@ -7,9 +7,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
         <div class="container mt-5">
-            <h2>Manage Activity: {{ sub_category }}</h2>
+            <h2 style="color: #527c94;">Steps to Reduce Emissions Occured Through: {{ sub_category }}</h2>
 
-            <h4 class="mt-4">Steps for Case: {{ case }}</h4>
+            <h4 class="mt-4" style="color: #527c94;">Steps based on Emission Level: {{ case }}</h4>
             {% if steps %}
                 <ul>
                 {% for step in steps %}
